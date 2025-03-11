@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOROVATSKAYA POLINA OFFICIAL</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc;
+            color: #4b382a;
+            line-height: 1.6;
+        }
+        header {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #4b382a;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #d4af37;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: calc(33.333% - 10px);
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .services-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .services-list li {
+            background-color: #f5f5dc;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+        .services-list li strong {
+            color: #d4af37;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4b382a;
+            color: #fff;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+        .admin-login {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .admin-login input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #4b382a;
+            border-radius: 5px;
+        }
+        .admin-login button {
+            padding: 10px 20px;
+            background-color: #4b382a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .admin-login button:hover {
+            background-color: #d4af37;
+        }
+        .admin-controls {
+            display: none; /* Скрыто по умолчанию */
+            margin-top: 20px;
+        }
+        .admin-controls h2 {
+            color: #4b382a;
+        }
+        .admin-controls button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #4b382a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .admin-controls button:hover {
+            background-color: #d4af37;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <h1>KOROVATSKAYA POLINA OFFICIAL</h1>
+    </header>
+
+    <nav>
+	<a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <div class="container">
+        <!-- Форма входа для администратора -->
+        <div class="admin-login">
+            <h2>Вход для администратора</h2>
+            <input type="text" id="adminUsername" placeholder="Логин">
+            <input type="password" id="adminPassword" placeholder="Пароль">
+            <button onclick="loginAdmin()">Войти</button>
+        </div>
+
+        <!-- Панель управления администратора -->
+        <div class="admin-controls" id="adminControls">
+            <h2>Панель управления</h2>
+            <button onclick="changeHeaderBackground()">Изменить фон шапки</button>
+            <button onclick="uploadGalleryImages()">Загрузить в галерею</button>
+        </div>
+
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>Коровацкая Полина Алексеевна - родилась 17.03.2003 в Московской области, Тучково. Отучилась в медицинском колледже при управлении делами президента. На данный момент работаю в Мариинской больнице. ЗАМУЖЕМ (почти).</p>
+        </section>
+
+        <section id="services">
+            <h2>Услуги</h2>
+            <ul class="services-list">
+                <li>
+                    <strong>Массаж лимфодренажный</strong> - 10.000₽
+                </li>
+                <li>
+                    <strong>Написание диплома для медицинского колледжа</strong> - 50.000₽
+                </li>
+                <li>
+                    <strong>Экстренная капельница</strong> - 30.000₽
+                </li>
+                <li>
+                    <strong>Подписка «Веселый укол»</strong> - 40.000₽/мес.
+                </li>
+            </ul>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея</h2>
+            <div class="gallery" id="imageGallery">
+                <!-- Здесь будут отображаться загруженные изображения -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Свяжитесь со мной:</p>
+            <ul>
+                <li>Email: polina@example.com</li>
+                <li>Телефон: +7 (123) 456-78-90</li>
+                <li>Социальные сети: 
+                    <a href="#">Instagram</a>, 
+                    <a href="#">Facebook</a>, 
+                    <a href="#">Twitter</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 KOROVATSKAYA POLINA OFFICIAL. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Логин и пароль администратора (для примера)
+        const adminCredentials = {
+            username: "admin",
+            password: "admin123"
+        };
+
+        // Функция входа администратора
+        function loginAdmin() {
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (username === adminCredentials.username && password === adminCredentials.password) {
+                alert("Вход выполнен успешно!");
+                document.getElementById('adminControls').style.display = 'block'; // Показываем панель управления
+            } else {
+                alert("Неверный логин или пароль!");
+            }
+        }
+
+        // Функция изменения фона шапки
+        function changeHeaderBackground() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function (event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const header = document.getElementById('header');
+                    header.style.backgroundImage = url(${e.target.result});
+                };
+                reader.readAsDataURL(file);
+            };
+            input.click();
+        }
+
+        // Функция загрузки изображений в галерею
+		function uploadGalleryImages() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.multiple = true;
+            input.onchange = function (event) {
+                const files = event.target.files;
+                const gallery = document.getElementById('imageGallery');
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = "Загруженное изображение";
+                        gallery.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        }
+    </script>
+
+</body>
+</html>
